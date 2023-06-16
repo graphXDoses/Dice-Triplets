@@ -16,7 +16,7 @@ vec4 char(vec2 p, int c) {
     return vec4(0);
 }
 vec4 draw_char() {
-    int c = char_id; vec2 p = char_pos;
+    int c = char_id; vec2 p = char_pos + vec2(-0.22, 0)*float(c == 0);
     return c < 0
         ? vec4(0,0,0,1e5)
         : textureGrad( iChannel3, p/16. + fract( vec2(c, 15-c/16) / 16. ),
@@ -38,17 +38,17 @@ int CAPS=0;
 
 void mainImage( out vec4 O, in vec2 U )
 {
-    O = vec4(0);
+    O = vec4(0);vec4 _O = vec4(0);
 
     if( get(0).z != 0. ) {
         vec2 u = (U-R*.5)/R.y;
         float sf = 1.;
+        vec2 abv = ( u+vec2(0.26,0) )*10., blw = ( u+vec2(0.175,0.065) )*20.;
         if( get(0).z == 1. ) { // Win screen
-            vec2 abv = ( u+vec2(0.26,0) )*10., blw = ( u+vec2(0.175,0.065) )*20.;
             u = abv;
 
 
-            caps C(19) C(21) C(3) C(3) C(19) C(5) C(19) C(-31)
+            caps C(19) C(21) C(3) C(3) C(5) C(19) C(19) C(-31)
 
             u = blw;
 
@@ -65,9 +65,17 @@ void mainImage( out vec4 O, in vec2 U )
 
             caps C(20) C(18) C(1) C(25) spc C(15) C(22) C(5) C(18) C(6) C(12) C(15) C(23)
         }
+        _O = O; O = vec4(0);
+
+        u = ( blw+vec2(-0.065,0.12)*20. );
+        vec2 u_1 = u;
+
+        caps u/=2.; C(-64)
+
+        O = _O;//min(_O, O);
 
         O += draw_char().wwww;
-        O = vec4(1.-saturate(draw((1.-O*2.), 12.)));
+        //O = vec4(1.-saturate(draw((1.-O*2.), 12.)));
     }
-    O.a = 1.;
+    //O.a = 1.;
 }

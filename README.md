@@ -1,6 +1,6 @@
 # Dice Triplets - A Matching Game
 
-![sample](doc/sample.png)
+![sample](doc/DiceDemo.gif)
 
 List of contents:
 - [Overview](#overview)
