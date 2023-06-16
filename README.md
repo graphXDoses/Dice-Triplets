@@ -19,7 +19,7 @@ List of contents:
 ## Overview
 Dice Triplets is a simple, yet fully functioning 2D puzzle game, that runs solely on the GPU. It is a demonstration project of the capabilities of parallel computing and mathematical optimizations used for improving performance in real-time graphics rendering.
 
-While this repository contains the entirety of the project's source code, the project originally was developed and tested in the Shadertoy website (see below) and can be found here: [Dice Triplets Demo](https://www.shadertoy.com/view/fl3BDr).
+While this repository contains the entirety of the project's source code, the project originally was developed and tested in the Shadertoy website (see below) and can be found here: [Dice Triplets Demo](https://www.shadertoy.com/playlist/73VGzd).
 
 ## WebGL
 WebGL (short for Web Graphics Library) is a JavaScript API for rendering interactive 2D and 3D graphics within any compatible web browser without the use of plug-ins. WebGL is fully integrated with other web standards, allowing GPU-accelerated usage of physics and image processing and effects as part of the web page canvas. WebGL elements can be mixed with other HTML elements and composited with other parts of the page or page background.
